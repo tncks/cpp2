@@ -1,0 +1,51 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <cfloat>
+
+using namespace std;
+
+class String {
+private:
+	char *str;
+	unsigned int len;
+public:
+	String();
+	String(const char *str);
+	String(const String &copy);
+	//String(const String &str);
+
+	~String();
+
+	const char *c_str();
+};
+
+int main() {
+	String str = "String";
+
+	cout << str.c_str() << endl;
+
+	return 0;
+}
+
+String::String(const char *str)
+	:str(0), len(0)
+{
+	for (len = 0; str[len]; len++);
+	this->str = new char[len + 1];
+	for (unsigned int i = 0; i < len + 1; i++)
+	{
+		this->str[i] = str[i];
+	}
+}
+
+String::~String()
+{
+	delete[] str;
+	len = 0;
+}
+
+const char *String::c_str()
+{
+	return str;
+}

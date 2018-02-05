@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class MyClass {
+public:
+	MyClass() {
+		cout << "Called Constructor!" << endl;
+	}
+	~MyClass() {
+		cout << "Called Destructor!" << endl;
+	}
+};
+
+int main() {
+	MyClass cls;
+
+	cout << "hi" << endl;
+
+	return 0;
+}
